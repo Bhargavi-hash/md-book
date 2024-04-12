@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Book</title>
+    <link rel="stylesheet" type="text/css" href="./itap/css/styles.css" />
+    <script>
+        function toggleVisibility(index) {
+            var p_index = index - 1;
+            const prompt = document.getElementById('prompt-' + p_index);
+            const theory = document.getElementById('theory-' + index);
+            if (theory.style.display === 'none') {
+                theory.style.display = 'block';
+                prompt.style.display = 'none';
+            } else {
+                theory.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    
+
+<div id="theory-1">
+    <div class="content_blck">
+                    <p>This is for an image.
+</p>
+                    <img src="sch_policy.png" alt="sch_policy">
+                </div>
+    <button class="prompt_blck" id="prompt-1" onclick="toggleVisibility(2)">Ok</button>
+</div>
+        
+
+<div id="theory-2">
+    <p class="content_blck">The mode shift between user and kernel is done by the hardware</p>
+    <button class="prompt_blck" id="prompt-2" onclick="toggleVisibility(3)">Ok. Understood.</button>
+</div>
+        
+
+<div id="theory-3">
+    <p class="content_blck">The mode shift happens when there is an interrupt or syscall</p>
+    <button class="prompt_blck" id="prompt-3" onclick="toggleVisibility(4)">Understood</button>
+</div>
+        
+
+<div id="theory-4">
+    <p class="content_blck">The Hardware is responsible to load the information in user-stack to k-stack, then shift to the kernel mode, and then go to the interrupt handler. If it is a timer interrupt, then kernel will run the Timer Handler routine. Once the interrupt is dealt with, the kernel will move onto perform the context switching.</p>
+    <button class="prompt_blck" id="prompt-4" onclick="toggleVisibility(5)">I have read and understood the above paragragh</button>
+</div>
+        
+
+<div id="theory-5">
+    <p class="content_blck">Now the kernel will first save the regsiters of the user process A which was interrupted into its PCB i.e. PCB-A. The data stored in PCB is obtained from the k-stack of Process A which was copied by the hardware from the user stack.</p>
+    <button class="prompt_blck" id="prompt-5" onclick="toggleVisibility(6)">Cool. Got it</button>
+</div>
+        
+
+<div id="theory-6">
+    <p class="content_blck">Once storing into PCB is done, its now time to restore the register info from the PCB of a new process selected by the scheduler. The register info is saved into the k-stack of the new process, let's name it B. Now the hardware plays it's role again and populates the user stack of process B with the info stored in k-stack of process B. Once this is done, it changes the mode from user to kernel.</p>
+    <button class="prompt_blck" id="prompt-6" onclick="toggleVisibility(7)">I have read and understood the above paragraph.</button>
+</div>
+        
+
+<div id="theory-7">
+    <p class="content_blck">Now the CPU in user mode executes process B. This process might be context switched with some other process if an interrupt arrives.</p>
+    <button class="prompt_blck" id="prompt-7" onclick="toggleVisibility(8)">Yes. Got it</button>
+</div>
+        
+
+<div id="theory-8">
+    <p class="content_blck">Testing for single correct options</p>
+    <div class="prompt_blck" id="prompt-8">
+                        <div><input type="radio" name="sc_opt" id="option-8-0" value="Test1"><label for="option-8-0">Test1</label><br><input type="radio" name="sc_opt" id="option-8-1" value="Test2"><label for="option-8-1">Test2</label><br><input type="radio" name="sc_opt" id="option-8-2" value="Test3"><label for="option-8-2">Test3</label><br></div>
+                        <button type="submit" class="p_submit" onclick="toggleVisibility(9)">Submit</button>
+                    </div>
+</div>
+        
+
+<div id="theory-9">
+    <p class="content_blck">Testing for multiple correct options</p>
+    <div class="prompt_blck" id="prompt-9">
+                        <div><input type="checkbox" name="mc_opt" id="option-9-0" value="MTest1"><label for="option-9-0">MTest1</label><br><input type="checkbox" name="mc_opt" id="option-9-1" value="MTest2"><label for="option-9-1">MTest2</label><br><input type="checkbox" name="mc_opt" id="option-9-2" value="MTest3"><label for="option-9-2">MTest3</label><br></div>
+                        <button type="submit" class="p_submit" onclick="toggleVisibility(10)">Submit</button>
+                    </div>
+</div>
+        
+</body>
+</html>
+    
